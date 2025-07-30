@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home - {{ SITENAME }}{% endblock %}
+{% block content %}
+
+<!-- Main Event Info Box -->
+<div class="main-event">
+    <h2>BACAR Centenary Launch Day 2025</h2>
+    <div class="event-meta">📍 Location: Secunda, South Africa &nbsp;&nbsp;|&nbsp;&nbsp; 📅 Date: October 11, 2025</div>
+    <p>
+        The official BACAR 2025 mission will lift off with over a dozen payloads including APRS, LoRa, imaging systems,
+        environmental sensors and much more.
+    </p>
+    <p>
+        For more information or to participate contact Christo Kriek at <a
+            href="mailto:christo.kriek@sasol.com">christo.kriek@sasol.com</a>
+    </p>
+</div>
+
+{% for article in articles if article.category == 'News' %}
+  <div class="news-item">
+      <h2>{{ article.title }}</h2>
+      <p class="news-date">{{ article.date.strftime('%Y-%m-%d') }}</p>
+      <div class="news-body">{{ article.content }}</div>
+  </div>
+{% endfor %}
+
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Missions - {{ SITENAME }}{% endblock %}
+{% block content %}
+
+<div class="diagram">
+    <div class="balloon"></div>
+    <div class="string"></div>
+
+    {% for article in articles if article.category == 'Payload' %}
+    <div class="payload">
+        <div class="payload-title">{{ article.title }}</div>
+        <div class="payload-description">
+            {{ article.metadata.payloaddescription }}
+        </div>
+        <div class="payload-mass">Mass: {{ article.metadata.payloadmass }}</div>
+
+        {% set ns = namespace(has_freq=false) %}
+        <table class="freq-table">
+            {% for i in range(1, 10) %}
+            {% set freq = article.metadata.get('freq' ~ i) %}
+            {% if freq %}
+            {% set parts = freq.split(',') %}
+            {% if parts|length == 3 %}
+            {% set direction = parts[0].strip() %}
+            {% set name = parts[1].strip() %}
+            {% set freqval = parts[2].strip() %}
+            {% set ns.has_freq = true %}
+            <tr>
+                <td>
+                    {% if direction == 'transmit' %}
+                    <span class="freq-icon">⬆️</span> {{ freqval }}
+                    {% elif direction == 'receive' %}
+                    <span class="freq-icon">⬇️</span> {{ freqval }}
+                    {% else %}
+                    {{ freqval }}
+                    {% endif %}
+                </td>
+                <td>{{ name }}</td>
+                <td>{{ direction.capitalize() }}</td>
+            </tr>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% if not ns.has_freq %}
+            <tr>
+                <td colspan="3" class="text-muted fst-italic">No Specified Frequencies</td>
+            </tr>
+            {% endif %}
+        </table>
+
+        <div class="payload-footer">
+            <a href="{{ SITEURL }}/{{ article.slug }}-mission.html">Mission Info</a>
+            <a href="{{ SITEURL }}/{{ article.slug }}-guide.html">Receive/Transmit Guide</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,230 @@
+/* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+
+.content {
+    margin-top: 100px;
+    padding: 40px;
+}
+
+/* Header / Navbar */
+.navbar {
+    background-color: #2c3e50;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Fixed Custom Header (for diagram page) */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    padding-right: 80px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover,
+.navbar-nav .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Main Event Highlight */
+.main-event {
+    background-color: #e9f3ff;
+    border: 1px solid #99c2ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-event h2 {
+    color: #1a4e9f;
+}
+
+.event-meta {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* News Section */
+.news-item {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.news-date {
+    font-size: 13px;
+    color: #666;
+}
+
+.news-body {
+    margin-top: 8px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Balloon Diagram Layout */
+.diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.balloon {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.8), rgba(200, 200, 255, 0.6), rgba(150, 150, 255, 0.4));
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 2px solid rgba(150, 150, 255, 0.6);
+}
+
+.string {
+    width: 2px;
+    background: #333;
+    position: absolute;
+    top: 180px;
+    bottom: 0;
+    z-index: -1;
+}
+
+/* Payload Box */
+.payload {
+    width: 400px;
+    padding: 16px;
+    margin: 20px 0;
+    background-color: #fff;
+    border: 2px solid #999;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.payload-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.payload-description {
+    flex-grow: 1;
+    text-align: center;
+    margin: 8px 0;
+    color: #333;
+}
+
+.payload-mass {
+    font-size: 13px;
+    margin-top: 8px;
+    font-style: italic;
+    color: #555;
+}
+
+.freq-table {
+    margin-top: 12px;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+}
+
+.freq-table td {
+    padding: 4px 6px;
+    border-bottom: 1px solid #ddd;
+}
+
+.freq-icon {
+    font-weight: bold;
+    color: #2c3e50;
+    width: 20px;
+    display: inline-block;
+}
+
+.payload-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.payload-footer a {
+    font-size: 13px;
+    text-decoration: none;
+    color: #2980b9;
+}
+
+.payload-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 576px) {
+    .header h1,
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .menu a,
+    .navbar-nav .nav-link {
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .payload {
+        width: 100%;
+    }
+}
